@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ball
-  - Goal
-  - Goal1
-  - Tank1
-  - Tank2
-  - Bullet
-  - 0
-  - Vach voi
-  - Bullet1
+  - Enemy
+  - bullet
+  - block
+  - hegde
+  - enemy
+  - player
   layers:
   - Default
   - TransparentFX
