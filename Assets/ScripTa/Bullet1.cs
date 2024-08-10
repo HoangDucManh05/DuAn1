@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet1 : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] float BulletSpeed = 30f;
     [SerializeField] float lifetime = 1f;
     Rigidbody2D myRigidbody;
-    Run1 Tank2;
+    Run Tank1;
     float xSpeed;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        Tank2 = FindObjectOfType<Run1>();
-        xSpeed = Tank2.transform.localScale.x * BulletSpeed;
-        xSpeed = -BulletSpeed;
+        Tank1 = FindObjectOfType<Run>();
+        xSpeed = Tank1.transform.localScale.x * BulletSpeed;
+        xSpeed = BulletSpeed;
         Destroy(gameObject, lifetime);
         
     }
@@ -26,14 +26,29 @@ public class Bullet : MonoBehaviour
         myRigidbody.velocity = new Vector2(xSpeed, 0f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.CompareTag("Vach voi"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+
+    //    if (collision.CompareTag("Tank2"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+
+
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Vach voi"))
+        if (collision.gameObject.CompareTag("Vach voi"))
         {
             Destroy(gameObject);
         }
 
-        if (collision.CompareTag("Tank1"))
+        if (collision.gameObject.CompareTag("Tank2"))
         {
             Destroy(gameObject);
         }

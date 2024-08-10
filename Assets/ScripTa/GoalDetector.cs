@@ -29,10 +29,7 @@ public class GoalDetector : MonoBehaviour
         }
 
         // Xử lý khi va chạm với đối tượng có tag "Vachvoi"
-        if (collision.CompareTag("Vachvoi"))
-        {
-            StartCoroutine(ResetBallAfterDelay(1.5f));
-        }
+        
     }
 
     private IEnumerator ResetBallAfterDelay(float delay)

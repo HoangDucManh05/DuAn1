@@ -5,9 +5,9 @@ using UnityEngine;
 public class Run1 : MonoBehaviour
 {
     private Rigidbody2D rb1;
-    Vector2 direction1;
+    private Vector2 direction1;
     public float speed1 = 10f;
-    
+    public Animator anm;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class Run1 : MonoBehaviour
         direction1.Normalize();
 
         
+        
     }
 
     private void FixedUpdate()
@@ -28,5 +29,15 @@ public class Run1 : MonoBehaviour
         rb1.velocity = direction1 * speed1;
     }
 
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet1"))
+        {
+            Destroy(gameObject);
+        }
+
+    }
     
 }

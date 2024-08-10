@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DangNhapTaiKhoan : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class DangNhapTaiKhoan : MonoBehaviour
     {
         StartCoroutine(DangNhap());
     }
+
     IEnumerator DangNhap()
     {
         WWWForm form = new WWWForm();
@@ -24,30 +24,29 @@ public class DangNhapTaiKhoan : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://fpl.expvn.com/dangnhap.php", form);
         yield return www.SendWebRequest();
 
-        if(!www.isDone)
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
-            thongbao.text = "Kết nối thành công";
+            thongbao.text = "Không kết nối được server";
         }
         else
         {
             string get = www.downloadHandler.text;
-            if(get == "empty")
+            if (get == "empty")
             {
-                thongbao.text = "Các trường giữ liệu không được để trống";
+                thongbao.text = "Các trường dữ liệu không được để trống";
             }
-            else if(get =="" || get == null)
+            else if (string.IsNullOrEmpty(get))
             {
                 thongbao.text = "Tài khoản hoặc mật khẩu không đúng";
-            }
-            else if (get.Contains("Lỗi"))
-            {
-                thongbao.text = "Không kết nối được sever";
             }
             else
             {
                 thongbao.text = "Đăng nhập thành công";
                 PlayerPrefs.SetString("token", get);
                 Debug.Log(get);
+
+                
+                
             }
         }
     }

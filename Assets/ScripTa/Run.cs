@@ -8,6 +8,8 @@ public class Run : MonoBehaviour
     private Rigidbody2D rb;
     Vector2 direction;
     public float speed = 10f;
+    public Animator anm1A;
+    public Animator anm1B;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +24,15 @@ public class Run : MonoBehaviour
         direction.y = Input.GetAxisRaw("Fire2");
         direction.Normalize();
 
+        if (direction.x != 0 || direction.y != 0)
+        {
+            TriggerAnimation();
+        }
+        else
+        {
+            StopAnimation();
+        }
+
 
 
     }
@@ -29,5 +40,25 @@ public class Run : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = direction * speed;
+    }
+
+    public void TriggerAnimation()
+    {
+        anm1A.SetBool("Run1A", true);
+        anm1B.SetBool("Run1B", true);
+    }
+
+    public void StopAnimation()
+    {
+        anm1A.SetBool("Run1A", false);
+        anm1B.SetBool("Run1B", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
