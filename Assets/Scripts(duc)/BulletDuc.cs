@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Bullet : MonoBehaviour
+public class BulletDuc : MonoBehaviour
 {
     public float speed;
     public float lifeTime;

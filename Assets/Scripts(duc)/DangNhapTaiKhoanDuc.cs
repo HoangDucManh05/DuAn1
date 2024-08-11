@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class DangNhapTaiKhoan : MonoBehaviour
+public class DangNhapTaiKhoanDuc : MonoBehaviour
 {
     public TMP_InputField user;
     public TMP_InputField passwd;
