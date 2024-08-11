@@ -4,30 +4,26 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class Home : MonoBehaviour
 {
     private VisualElement homeElement;
+    // Start is called before the first frame update
     void Start()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         homeElement = root.Q<VisualElement>("home");
         homeElement.style.display = DisplayStyle.Flex;
-        Button Play = root.Q<Button>("replay");
-        Play.RegisterCallback<ClickEvent>(replay);
+        Button Play = root.Q<Button>("play");
+        Play.RegisterCallback<ClickEvent>(playgame);
         Button Exit = root.Q<Button>("exit");
         Exit.RegisterCallback<ClickEvent>(exit);
     }
-
-    private void replay(ClickEvent cke)
+    private void playgame(ClickEvent cke)
     {
         SceneManager.LoadScene("Map1(duc)");
     }
     private void exit(ClickEvent cke)
     {
-        SceneManager.LoadScene("Home(duc)1");
-    }
-    void Update()
-    {
-
+        SceneManager.LoadScene("");
     }
 }

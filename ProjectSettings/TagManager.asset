@@ -10,6 +10,8 @@ TagManager:
   - hegde
   - enemy
   - player
+  - hp
+  - bullet2
   layers:
   - Default
   - TransparentFX

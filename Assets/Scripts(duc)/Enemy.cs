@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0.5f;
     public Transform player;
+    [SerializeField] GameObject[] Items;
+    [SerializeField] float Rate = 50f;
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("player");
@@ -40,7 +42,11 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("bullet"))
         {
             Destroy(this.gameObject);
-
+            if (Random.Range(0f, 100f) < Rate)
+            {
+                int randomIndex = Random.Range(0, Items.Length);
+                Instantiate(Items[randomIndex], transform.position, Quaternion.identity);
+            }
         }
     }
 }

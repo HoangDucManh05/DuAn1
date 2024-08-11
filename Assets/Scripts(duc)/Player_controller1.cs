@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class Player_controller1 : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject BulletDefault;
+    public GameObject BulletVip;
+    private GameObject Bullet;
     public Transform firePoint;
     public float bulletSpeed = 10f;
     Rigidbody2D rb;
@@ -17,6 +19,7 @@ public class Player_controller1 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Bullet = BulletDefault;
     }
 
     void Update()
@@ -49,9 +52,20 @@ public class Player_controller1 : MonoBehaviour
             Shoot();
         }
     }
+    public void ChangeBullet(bool useBulletVip)
+    {
+        if (useBulletVip)
+        {
+            Bullet = BulletVip;
+        }
+        else
+        {
+            Bullet = BulletDefault;
+        }
+    }
     void Shoot()
     {
-        GameObject bullett = Instantiate(bullet, firePoint.position, firePoint.rotation);
+        GameObject bullett = Instantiate(Bullet, firePoint.position, firePoint.rotation);
 
         Rigidbody2D rb = bullett.GetComponent<Rigidbody2D>();
         rb.velocity = firePoint.up * bulletSpeed;
