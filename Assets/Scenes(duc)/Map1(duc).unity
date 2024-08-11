@@ -5081,6 +5081,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3281756533711624834, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
+      propertyPath: Rate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -3281756533711624834, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 621989284}
@@ -5088,6 +5092,18 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: -3281756533711624834, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
+      propertyPath: Items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3281756533711624834, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
+      propertyPath: Items.Array.data[0]
+      value: 
+      objectReference: {fileID: 6696096344117249960, guid: cd4efa89d6c9c054292a40287fbe2087, type: 3}
+    - target: {fileID: -3281756533711624834, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
+      propertyPath: Items.Array.data[1]
+      value: 
+      objectReference: {fileID: 7027001593807254066, guid: cdaa4c6065141be4cb22d4369cc2147e, type: 3}
     - target: {fileID: 5617109395016134523, guid: 427019fd8416be8419313ea29c03b7f4, type: 3}
       propertyPath: m_Name
       value: Enemy(duc)
@@ -10144,8 +10160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  HP: 3
+  HP: 5
   HPText: {fileID: 624720887}
+  Cooldown: 1
 --- !u!60 &621989286
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15545,7 +15562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f4771df7b2a3d448969f1e29d60341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 291831879741802821, guid: 3a24080001e82724fa9f25e3c7996bff, type: 3}
+  BulletDefault: {fileID: 291831879741802821, guid: 3a24080001e82724fa9f25e3c7996bff, type: 3}
+  BulletVip: {fileID: 8124504011440970476, guid: 953cc97fce20e4a47a58fe05aedf74c6, type: 3}
   firePoint: {fileID: 215861890}
   bulletSpeed: 15
   speed: 7
@@ -15752,7 +15770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123456
+  m_text: 99999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}

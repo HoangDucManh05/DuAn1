@@ -14,6 +14,8 @@ public class Player_controller : MonoBehaviour
     private bool isMoving = false;
     public int HP = 5;
     public TextMeshProUGUI HPText;
+    private bool Damage = true;
+    public float Cooldown = 1f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,13 +24,6 @@ public class Player_controller : MonoBehaviour
 
     void Update()
     {
-        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector2 huongNhin = mousePos - transform.position;
-
-        //float gocXoay = Mathf.Atan2(huongNhin.y, huongNhin.x) * Mathf.Rad2Deg - 90;
-        //rb.rotation = gocXoay;
-
-        
         if (Input.GetMouseButtonDown(0))
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -52,14 +47,50 @@ public class Player_controller : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("enemy") && Damage)
         {
-            HP--;
+            StartCoroutine(TakeDamage());
+        }       
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("hp"))
+        {
+            HP++;
             HPText.SetText(HP.ToString());
-            if (HP == 0)
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("bullet2"))
+        {
+            Player_controller1 playerController1 = FindObjectOfType<Player_controller1>();
+            if (playerController1 != null)
             {
-                SceneManager.LoadScene("Game over(duc)");
+                playerController1.ChangeBullet(true);
             }
+            Destroy(collision.gameObject);
+            StartCoroutine(ResetBullet(10f));
+        }
+    }
+
+    private IEnumerator TakeDamage()
+    {
+        Damage = false;
+        HP--;
+        HPText.SetText(HP.ToString());
+        if (HP == 0)
+        {
+            SceneManager.LoadScene("Game over(duc)");
+        }
+        yield return new WaitForSeconds(Cooldown);
+        Damage = true;
+    }
+    private IEnumerator ResetBullet(float reset)
+    {
+        yield return new WaitForSeconds(reset);
+        Player_controller1 playerController1 = FindObjectOfType<Player_controller1>();
+        if (playerController1 != null)
+        {
+            playerController1.ChangeBullet(false);
         }
     }
 }

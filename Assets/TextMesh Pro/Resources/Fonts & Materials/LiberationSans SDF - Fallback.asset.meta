@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9301a85662b71c34296e04ed3ceca6b3
 timeCreated: 1484171803
 licenseType: Pro
+=======
+guid: 1fe89c847e552594aa5cefd54e2c8201
+>>>>>>> VanDuc
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
