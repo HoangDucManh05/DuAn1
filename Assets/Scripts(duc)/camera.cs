@@ -3,7 +3,7 @@ using UnityEngine;
 public class camera : MonoBehaviour
 {
     public Transform player;
-    public float smoothSpeed = 0.125f;
+    public float smoothSpeed = 7f;
     public Vector3 offset;
 
     void LateUpdate()

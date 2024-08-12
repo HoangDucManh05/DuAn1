@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 0.5f;
+    [SerializeField] float moveSpeed = 3.5f;
     public Transform player;
     [SerializeField] GameObject[] Items;
-    [SerializeField] float Rate = 50f;
+    [SerializeField] float Rate = 10f;
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("player");

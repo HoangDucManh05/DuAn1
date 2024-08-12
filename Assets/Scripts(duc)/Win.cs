@@ -4,20 +4,25 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class Home : MonoBehaviour
+public class Win : MonoBehaviour
 {
     private VisualElement homeElement;
-    // Start is called before the first frame update
     void Start()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         homeElement = root.Q<VisualElement>("home");
         homeElement.style.display = DisplayStyle.Flex;
-        Button Play = root.Q<Button>("play");
-        Play.RegisterCallback<ClickEvent>(playgame);
+        Button Replay = root.Q<Button>("replay");
+        Replay.RegisterCallback<ClickEvent>(replay);
+        Button Exit = root.Q<Button>("exit");
+        Exit.RegisterCallback<ClickEvent>(exit);
     }
-    private void playgame(ClickEvent cke)
+    private void replay(ClickEvent cke)
     {
         SceneManager.LoadScene("Map1(duc)");
+    }
+    private void exit(ClickEvent cke)
+    {
+        SceneManager.LoadScene("Home(duc)1");
     }
 }
