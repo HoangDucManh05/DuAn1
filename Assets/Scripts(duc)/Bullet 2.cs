@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bullet2 : MonoBehaviour
 {
@@ -26,6 +25,7 @@ public class Bullet2 : MonoBehaviour
         if (other.gameObject.CompareTag("enemy"))
         {
             score.AddScore(scoreValue);
+
         }
     }
 }

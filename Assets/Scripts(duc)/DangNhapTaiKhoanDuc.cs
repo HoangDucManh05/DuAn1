@@ -47,11 +47,6 @@ public class DangNhapTaiKhoanDuc : MonoBehaviour
                 SceneManager.LoadScene("Home(duc)1");
             }
         }
-        StartCoroutine(ClearThongBao());
-    }
-    private IEnumerator ClearThongBao()
-    {
-        yield return new WaitForSeconds(2);
-        thongbao.text = "";
+
     }
 }

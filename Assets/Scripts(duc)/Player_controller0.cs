@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Player_controller : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed = 7f;
+    public float speed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
     public int HP = 5;

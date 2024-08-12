@@ -6,7 +6,7 @@ public class Enemy_Spawn : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform player;
-    [SerializeField] float spawnRate = 1f, spawnRadius = 6f, minDistanceFromPlayer = 6f;
+    [SerializeField] float spawnRate = 2f, spawnRadius = 4f, minDistanceFromPlayer = 6.5f;
     private float spawnTimer = 0;
 
     void Start()

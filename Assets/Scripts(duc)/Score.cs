@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -17,9 +16,5 @@ public class Score : MonoBehaviour
     {
         score += value;
         scoreText.SetText(score.ToString());
-        if (score == 100)
-        {
-            SceneManager.LoadScene("Win(duc)");
-        }
     }
 }

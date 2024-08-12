@@ -40,11 +40,5 @@ public class DangKyTaiKhoan : MonoBehaviour
                 default: thongbao.text = "Không kết nối được tới server"; break;
             }
         }
-        StartCoroutine(ClearThongBao());
-    }
-    private IEnumerator ClearThongBao()
-    {
-        yield return new WaitForSeconds(2);
-        thongbao.text = "";
     }
 }

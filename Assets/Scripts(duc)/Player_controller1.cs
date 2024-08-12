@@ -11,9 +11,9 @@ public class Player_controller1 : MonoBehaviour
     public GameObject BulletVip;
     private GameObject Bullet;
     public Transform firePoint;
-    public float bulletSpeed = 15f;
+    public float bulletSpeed = 10f;
     Rigidbody2D rb;
-    public float speed = 7f;
+    public float speed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
     void Start()

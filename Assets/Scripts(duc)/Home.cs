@@ -15,9 +15,15 @@ public class Home : MonoBehaviour
         homeElement.style.display = DisplayStyle.Flex;
         Button Play = root.Q<Button>("play");
         Play.RegisterCallback<ClickEvent>(playgame);
+        Button Exit = root.Q<Button>("exit");
+        Exit.RegisterCallback<ClickEvent>(exit);
     }
     private void playgame(ClickEvent cke)
     {
         SceneManager.LoadScene("Map1(duc)");
+    }
+    private void exit(ClickEvent cke)
+    {
+        SceneManager.LoadScene("");
     }
 }
