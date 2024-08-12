@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
     {
         score += value;
         scoreText.SetText(score.ToString());
-        if (score == 100)
+        if (score == 50)
         {
             SceneManager.LoadScene("Win(duc)");
         }
